@@ -16,8 +16,9 @@ public class UserController {
   private UserService userService;
 
   @GetMapping("getUser/{id}")
-  public String GetUser(@PathVariable int id){
-    return userService.Sel(id).toString();
+  public User GetUser(@PathVariable int id){
+    User sel = userService.Sel(id);
+    return sel;
   }
 
   @GetMapping("add")

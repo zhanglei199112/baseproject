@@ -1,5 +1,8 @@
 package com.example.template.entity;
 
+import com.example.template.config.translatorconfig.Code2Text;
+import com.example.template.config.translatorconfig.CodeI18n;
+import com.example.template.config.translators.AgeTranslator;
 import java.io.Serializable;
 import javax.persistence.*;
 import lombok.Getter;
@@ -8,6 +11,7 @@ import lombok.Setter;
 @Table(name = "tb_user_")
 @Getter
 @Setter
+@CodeI18n
 public class User implements Serializable {
     @Id
     @Column(name = "id_")
@@ -18,6 +22,7 @@ public class User implements Serializable {
     private String name;
 
     @Column(name = "age_")
+    @Code2Text(translateor = AgeTranslator.class)
     private Integer age;
 
     private static final long serialVersionUID = 1L;
