@@ -27,12 +27,12 @@ public class EsClient_doc_batch_insert {
         RestClient.builder(new HttpHost("localhost", 9200,"http")));
     //插入数据
     BulkRequest request = new BulkRequest();
-    request.add(new IndexRequest().index("user").id("1001").source(XContentType.JSON,"name_","张三","age",30,"sex","男的")) ;
-    request.add(new IndexRequest().index("user").id("1002").source(XContentType.JSON,"name_","李四","age",30,"sex","男的")) ;
-    request.add(new IndexRequest().index("user").id("1003").source(XContentType.JSON,"name_","王五","age",30,"sex","男的")) ;
-    request.add(new IndexRequest().index("user").id("1004").source(XContentType.JSON,"name_","张三","age",30,"sex","女的")) ;
-    request.add(new IndexRequest().index("user").id("1005").source(XContentType.JSON,"name_","李四","age",30,"sex","女的")) ;
-    request.add(new IndexRequest().index("user").id("1006").source(XContentType.JSON,"name_","王五","age",30,"sex","女的")) ;
+    request.add(new IndexRequest().index("user").id("1009").source(XContentType.JSON,"name_","张三1","age",70,"sex","男的")) ;
+//    request.add(new IndexRequest().index("user").id("1002").source(XContentType.JSON,"name_","李四","age",40,"sex","男的")) ;
+//    request.add(new IndexRequest().index("user").id("1003").source(XContentType.JSON,"name_","王五","age",50,"sex","男的")) ;
+    request.add(new IndexRequest().index("user").id("1010").source(XContentType.JSON,"name_","1张三","age",300,"sex","女的")) ;
+//    request.add(new IndexRequest().index("user").id("1005").source(XContentType.JSON,"name_","李四","age",70,"sex","女的")) ;
+//    request.add(new IndexRequest().index("user").id("1006").source(XContentType.JSON,"name_","王五","age",80,"sex","女的")) ;
     BulkResponse bulk = esclient.bulk(request, RequestOptions.DEFAULT);
     //获取响应状态
     System.out.println(bulk.getTook());
