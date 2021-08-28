@@ -15,4 +15,5 @@ CREATE TABLE `tb_user_` (
 );
 INSERT INTO `tb_user_` VALUES (1, '11', 22);
 ```
-
+本版本新增流转换功能主要是rtsp转换成flv，避免前端flush被禁用之后无法使用的问题，源码为
+https://gitee.com/52jian/EasyMedia

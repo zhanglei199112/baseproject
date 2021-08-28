@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>transfer-media</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+  <!--引入spring-->
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.3.6</version>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>5.3.6</version>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+    <version>5.3.6</version>
+  </dependency>
+
+  <!-- 媒体只用到以下两个 -->
+  <dependency>
+    <groupId>org.bytedeco</groupId>
+    <artifactId>javacv</artifactId>
+    <version>1.5.5</version>
+  </dependency>
+
+  <dependency>
+    <groupId>org.bytedeco</groupId>
+    <artifactId>ffmpeg-platform</artifactId>
+    <version>4.3.2-1.5.5</version>
+  </dependency>
+
+  <!-- 工具包 -->
+  <dependency>
+    <groupId>cn.hutool</groupId>
+    <artifactId>hutool-all</artifactId>
+    <version>5.7.8</version>
+  </dependency>
+
+  <!-- netty -->
+  <dependency>
+    <groupId>io.netty</groupId>
+    <artifactId>netty-all</artifactId>
+    <version>4.1.59.Final</version>
+  </dependency>
+
+  <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.25</version>
+  </dependency>
+
+  <dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <optional>true</optional>
+    <version>1.18.16</version>
+  </dependency>
+</dependencies>
+  <distributionManagement>
+    <repository>
+      <id>release</id>
+      <name>emp-maven-release</name>
+      <url>http://repo.easylinkin.net/repository/emp-maven-release/</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshot</id>
+      <name>emp-maven-snapshot</name>
+      <url>http://repo.easylinkin.net/repository/emp-maven-snapshot/</url>
+    </snapshotRepository>
+  </distributionManagement>
+</project>
