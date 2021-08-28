@@ -62,16 +62,18 @@ public class MediaServer {
         .childOption(ChannelOption.SO_SNDBUF, 1024 * 1024)
         .childOption(ChannelOption.WRITE_BUFFER_WATER_MARK, new WriteBufferWaterMark(1024 * 1024 / 2, 1024 * 1024));
     //绑定端口,开始接收进来的连接
-    try {
-      ChannelFuture future = bootstrap.bind(socketAddress).sync();
-      future.channel().closeFuture().sync();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    } finally {
-      //关闭主线程组
-      bossGroup.shutdownGracefully();
-      //关闭工作线程组
-      workGroup.shutdownGracefully();
-    }
+    new Thread(()->{
+      try {
+        ChannelFuture future = bootstrap.bind(socketAddress).sync();
+        future.channel().closeFuture().sync();
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      } finally {
+        //关闭主线程组
+        bossGroup.shutdownGracefully();
+        //关闭工作线程组
+        workGroup.shutdownGracefully();
+      }
+    }).start();
   }
 }
